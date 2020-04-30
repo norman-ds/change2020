@@ -1,0 +1,101 @@
+---
+title: Die Zahl der Toten in den Regionen
+author: Norman
+date: '2020-04-29'
+slug: die-zahl-der-toten-in-den-regionen
+categories:
+  - COVID19
+tags:
+  - Todesfall
+  - Kanton
+---
+
+
+
+<p>Vor einer Woche habe ich beschrieben, warum die <a href="https://sterblichkeit.puntaminar.ch">Die Zahl der Toten</a> eine relativ zuverlässige Datenerfassung ist. Zudem konnte ich zeigen, dass es in der Schweiz seit 2013 immer wieder zu einer Übersterblichkeit während der Wintersaison kam.</p>
+<div class="figure">
+<img src="/images/2020-04-29-die-zahl-der-toten-in-den-regionen_files/gd-d-14.03.04.03-wr-computed_thumbnail.png" alt="Wöchentliche Todesfälle 2020" align="center" />
+<p class="caption">Wöchentliche Todesfälle 2020</p>
+</div>
+<p>Die Grafik ist etwas unglücklich dargestellt und verbreitet mehr Verunsicherung als notwendig.</p>
+<div id="todesfälle-nach-regionen" class="section level1">
+<h1>Todesfälle nach Regionen</h1>
+<p>Das BFS bietet detailiertere Daten nach Alter und Regionen über die letzten zwanzig Jahre. Ich will zeigen, dass nicht in allen Regionen im April 2020 zu Übersterblichkeiten kam und dass auch nicht alle Schweizer über 65 Jahren sich fürchten müssen.</p>
+<pre><code>## Joining, by = &quot;geo&quot;</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">geo</th>
+<th align="left">year</th>
+<th align="right">cw</th>
+<th align="left">age</th>
+<th align="right">value</th>
+<th align="right">value_cum</th>
+<th align="left">ggeo</th>
+<th align="left">kanton</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">CH</td>
+<td align="left">2000</td>
+<td align="right">1</td>
+<td align="left">(0,64]</td>
+<td align="right">209</td>
+<td align="right">209</td>
+<td align="left">CH</td>
+<td align="left">CH</td>
+</tr>
+<tr class="even">
+<td align="left">CH</td>
+<td align="left">2000</td>
+<td align="right">1</td>
+<td align="left">(64,80]</td>
+<td align="right">430</td>
+<td align="right">430</td>
+<td align="left">CH</td>
+<td align="left">CH</td>
+</tr>
+<tr class="odd">
+<td align="left">CH</td>
+<td align="left">2000</td>
+<td align="right">1</td>
+<td align="left">(80,100]</td>
+<td align="right">972</td>
+<td align="right">972</td>
+<td align="left">CH</td>
+<td align="left">CH</td>
+</tr>
+<tr class="even">
+<td align="left">CH</td>
+<td align="left">2000</td>
+<td align="right">2</td>
+<td align="left">(0,64]</td>
+<td align="right">243</td>
+<td align="right">452</td>
+<td align="left">CH</td>
+<td align="left">CH</td>
+</tr>
+<tr class="odd">
+<td align="left">CH</td>
+<td align="left">2000</td>
+<td align="right">2</td>
+<td align="left">(64,80]</td>
+<td align="right">407</td>
+<td align="right">837</td>
+<td align="left">CH</td>
+<td align="left">CH</td>
+</tr>
+<tr class="even">
+<td align="left">CH</td>
+<td align="left">2000</td>
+<td align="right">2</td>
+<td align="left">(80,100]</td>
+<td align="right">1048</td>
+<td align="right">2020</td>
+<td align="left">CH</td>
+<td align="left">CH</td>
+</tr>
+</tbody>
+</table>
+</div>
