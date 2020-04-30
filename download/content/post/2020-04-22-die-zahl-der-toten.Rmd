@@ -1,0 +1,13 @@
+---
+title: Die Zahl der Toten
+author: Norman
+date: '2020-04-22'
+slug: die-zahl-der-toten
+categories:
+  - COVID19
+tags:
+  - Todesfall
+---
+
+
+Sie können [hier](https://sterblichkeit.puntaminar.ch) den Blog lesen, bis er hier eingefügt wird.

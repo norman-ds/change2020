@@ -10,16 +10,20 @@ tags:
   - Kanton
 ---
 
-Vor einer Woche habe ich beschrieben, warum die [Die Zahl der Toten](https://sterblichkeit.puntaminar.ch) eine relativ zuverlässige Datenerfassung ist. Zudem konnte ich zeigen, dass es in der Schweiz seit 2013 immer wieder zu einer Übersterblichkeit während der Wintersaison kam. 
+Vor einer Woche habe ich beschrieben, warum die [Die Zahl der Toten](/2020/04/22/die-zahl-der-toten/) eine relativ zuverlässige Datenerfassung ist. Zudem konnte ich zeigen, dass es in der Schweiz seit 2013 immer wieder zu einer Übersterblichkeit während der Wintersaison kam. 
 
 ![Wöchentliche Todesfälle 2020](/images/2020-04-29-die-zahl-der-toten-in-den-regionen_files/gd-d-14.03.04.03-wr-computed_thumbnail.png){align=center}
 
 
-Die Grafik ist etwas unglücklich dargestellt und verbreitet mehr Verunsicherung als notwendig.
+Die [Grafik](https://www.bfs.admin.ch/bfs/de/home/statistiken/gesundheit/gesundheitszustand/sterblichkeit-todesursachen.html) vom Bundesamt für Statistik ist zwar inhaltlich korrekt, jedoch unterlässt sie regionale Unterschiede. Tritt in einer Region eine Unregelmässigkeit auf, ist der Betrachter versucht zu glauben, in jedem Kanton bestehe eine ähnliche ungewöhliche Abweichung.
+
+Zudem hat die Altersgruppe *über 65* zuwenig Aussagekraft. Schweizer haben heute eine Lebenserwartung von über 80 Jahren. Auch wenn Arbeitnehmer mit 65 Jahren in der Ruhestand gehen, ist für mehrere Jahre nicht mit dem Tod zu rechnen.
 
 # Todesfälle nach Regionen
 
-Das BFS bietet detailiertere Daten nach Alter und Regionen über die letzten zwanzig Jahre. Ich will zeigen, dass nicht in allen Regionen im April 2020 zu Übersterblichkeiten kam und dass auch nicht alle Schweizer über 65 Jahren sich fürchten müssen. 
+Das BFS bietet detailiertere Daten nach Alter und Regionen über die letzten zwanzig Jahre und seit dem 28.April 2020 ein [Mortalitätsmonitoring nach Grossregionen](https://experimental.bfs.admin.ch/de/momo.html). 
+
+Ich will zeigen, dass nicht in allen Regionen im April 2020 zu Übersterblichkeiten kam und dass auch nicht alle Schweizer über 65 Jahren sich fürchten müssen. 
 
 ```{r dataframe, cache=T, results='asis', echo=F}
 fn4 <- 'ts-q-01.04.02.01.30.csv' # (20MB) Todesfälle nach Fünf-Jahres-Altersgruppe, Geschlecht, Woche und Kanton
@@ -42,7 +46,8 @@ dfdeath <- read.csv2(file.path(datapath,fn4), stringsAsFactors=F) %>%
   ungroup() %>%
   mutate(ggeo=gsub('^(CH0[1-7]).$','\\1',geo)) %>%
   inner_join(
-    read.csv2(file.path(datapath,'grossregionCH.csv'), stringsAsFactors=F)
+    read.csv2(file.path(datapath,'grossregionCH.csv'), stringsAsFactors=F),
+    by='geo'
   )
 
 year_last <- '2020'
