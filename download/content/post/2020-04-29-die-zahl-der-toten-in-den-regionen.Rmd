@@ -10,9 +10,14 @@ tags:
   - Kanton
 ---
 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
 Vor einer Woche habe ich beschrieben, warum die [Die Zahl der Toten](/2020/04/22/die-zahl-der-toten/) eine relativ zuverlässige Datenerfassung ist. Zudem konnte ich zeigen, dass es in der Schweiz seit 2013 immer wieder zu einer Übersterblichkeit während der Wintersaison kam. 
 
-![Wöchentliche Todesfälle 2020](/images/2020-04-29-die-zahl-der-toten-in-den-regionen_files/gd-d-14.03.04.03-wr-computed_thumbnail.png){align=center}
+![](/images/2020-04-29-die-zahl-der-toten-in-den-regionen_files/gd-d-14.03.04.03-wr-computed_thumbnail.png){align=center}
 
 
 Die [Grafik](https://www.bfs.admin.ch/bfs/de/home/statistiken/gesundheit/gesundheitszustand/sterblichkeit-todesursachen.html) vom Bundesamt für Statistik ist zwar inhaltlich korrekt, jedoch unterlässt sie regionale Unterschiede. Tritt in einer Region eine Unregelmässigkeit auf, ist der Betrachter versucht zu glauben, in jedem Kanton bestehe eine ähnliche ungewöhliche Abweichung.
@@ -25,7 +30,7 @@ Das BFS bietet detailiertere Daten nach Alter und Regionen über die letzten zwa
 
 Ich will zeigen, dass nicht in allen Regionen im April 2020 zu Übersterblichkeiten kam und dass auch nicht alle Schweizer über 65 Jahren sich fürchten müssen. 
 
-```{r dataframe, cache=T, results='asis', echo=F}
+```{r dataframe, cache=T, results='asis', echo=F, message=F}
 fn4 <- 'ts-q-01.04.02.01.30.csv' # (20MB) Todesfälle nach Fünf-Jahres-Altersgruppe, Geschlecht, Woche und Kanton
 datapath <- file.path('..','..','data')
 
@@ -38,7 +43,7 @@ dfdeath <- read.csv2(file.path(datapath,fn4), stringsAsFactors=F) %>%
   mutate(AC0=gsub('(.+[ET])([0-9]?)([049])$','\\2\\3',AGE)) %>%
   mutate(AC1=as.integer(AC0)) %>%
   #mutate(age=if_else(AC1<=64,'0-64','65+')) %>%
-  mutate(age=as.character(cut(AC1, breaks = c(0,64,80,100)))) %>%
+  mutate(age=as.character(cut(AC1, breaks = c(0,64,80,100), labels = c("0-64", "65-79", "80+")))) %>%
   group_by(geo=GEO, year, cw, age) %>%
   summarise(value=sum(Obs_value)) %>%
   group_by(geo, year, age) %>%
@@ -53,7 +58,68 @@ dfdeath <- read.csv2(file.path(datapath,fn4), stringsAsFactors=F) %>%
 year_last <- '2020'
 cw_last <- max(dfdeath[dfdeath$year==year_last,]$cw)
 
-knitr::kable(dfdeath %>% head())
+#knitr::kable(dfdeath %>% head())
 ```
+
+```{r fig-ch-age, results='asis',warning=F, echo=F, fig.align="center", fig.width=7, fig.height=5, fig.cap="Datenquelle: BFS, Grafik by Norman Bieri"}
+
+library(ggplot2)
+library(dplyr)
+
+
+# Todesfälle pro Kalenderwoche 
+dfdeath %>%
+  filter(geo=='CH') %>%
+  mutate(highlight=year!=year_last) %>%
+  ggplot(aes(x=cw, y=value, group=year, color=highlight, size=highlight)) +
+  geom_line() +
+  scale_color_manual(values = c("#69b3a3", "lightgrey")) +
+  scale_size_manual(values=c(1.5,0.2)) +
+  scale_x_continuous(limits = c(1, 52)) +
+  theme_minimal() +
+  ggtitle("Erfasste Todesfälle der Jahre 2000-2020 nach drei Altersgruppen") +
+  ylab(NULL) +
+  xlab('Kalenderwoche') +
+  facet_grid(age ~., scales = 'free_y') +
+  theme(
+    legend.position="none",
+    plot.title = element_text(size=14)
+  ) 
+
+```
+
+Abbildung \@ref(fig:fig-ch-age) macht eine ähnliche Bandbreite von rund 50 Fällen für die beiden Altersgruppen *0-64* und *65-79* deutlich, wobei die Bandbreite für die Altergruppe *80+* sicher 200 Fälle beträgt.
+
+```{r fig-k-age, results='asis',warning=F, echo=F, out.width='33%', fig.show='hold', fig.cap="Todesfälle für die Kantone Genf, Zürich und Graubünden 2000-2020"}
+
+library(ggplot2)
+library(dplyr)
+
+
+# Todesfälle pro Kalenderwoche 
+plots <- function(kanton) {
+  dfdeath %>%
+  filter(kanton==!!kanton) %>%
+  mutate(highlight=year!=year_last) %>%
+  ggplot(aes(x=cw, y=value, group=year, color=highlight, size=highlight)) +
+  geom_line() +
+  scale_color_manual(values = c("#69b3a3", "lightgrey")) +
+  scale_size_manual(values=c(1.5,0.2)) +
+  scale_x_continuous(limits = c(1, 15)) +
+  theme_minimal() +
+  ggtitle(sprintf("Kanton %s",kanton)) +
+  ylab(NULL) +
+  xlab('Kalenderwoche') +
+  facet_grid(age ~., scales = 'free_y') +
+  theme(
+    legend.position="none",
+    plot.title = element_text(size=14)
+  ) }
+
+plots('GE')
+plots('ZH')
+plots('GR')
+```
+
 
 
