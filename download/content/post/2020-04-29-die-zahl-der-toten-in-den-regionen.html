@@ -8,37 +8,186 @@ categories:
 tags:
   - Todesfall
   - Kanton
+editor_options: 
+  chunk_output_type: console
 ---
 
 
 
 <p>Vor einer Woche habe ich beschrieben, warum die <a href="/2020/04/22/die-zahl-der-toten/">Die Zahl der Toten</a> eine relativ zuverlässige Datenerfassung ist. Zudem konnte ich zeigen, dass es in der Schweiz seit 2013 immer wieder zu einer Übersterblichkeit während der Wintersaison kam.</p>
 <p><img src="/images/2020-04-29-die-zahl-der-toten-in-den-regionen_files/gd-d-14.03.04.03-wr-computed_thumbnail.png" align="center" /></p>
-<p>Die <a href="https://www.bfs.admin.ch/bfs/de/home/statistiken/gesundheit/gesundheitszustand/sterblichkeit-todesursachen.html">Grafik</a> vom Bundesamt für Statistik ist zwar inhaltlich korrekt, jedoch unterlässt sie regionale Unterschiede. Tritt in einer Region eine Unregelmässigkeit auf, ist der Betrachter versucht zu glauben, in jedem Kanton bestehe eine ähnliche ungewöhliche Abweichung.</p>
+<p>Die <a href="https://www.bfs.admin.ch/bfs/de/home/statistiken/gesundheit/gesundheitszustand/sterblichkeit-todesursachen.html">Grafik</a> vom Bundesamt für Statistik ist zwar inhaltlich korrekt, jedoch unterlässt sie regionale Unterschiede. Tritt in einer Region eine Unregelmässigkeit auf, ist der Betrachter versucht zu glauben, in jedem Kanton bestehe eine ähnlich ungewöhliche Abweichung.</p>
 <p>Zudem hat die Altersgruppe <em>über 65</em> zuwenig Aussagekraft. Schweizer haben heute eine Lebenserwartung von über 80 Jahren. Auch wenn Arbeitnehmer mit 65 Jahren in der Ruhestand gehen, ist für mehrere Jahre nicht mit dem Tod zu rechnen.</p>
-<div id="todesfälle-nach-regionen" class="section level1">
-<h1>Todesfälle nach Regionen</h1>
+<div id="todesfälle-nach-altersgruppen" class="section level1">
+<h1>Todesfälle nach Altersgruppen</h1>
 <p>Das BFS bietet detailiertere Daten nach Alter und Regionen über die letzten zwanzig Jahre und seit dem 28.April 2020 ein <a href="https://experimental.bfs.admin.ch/de/momo.html">Mortalitätsmonitoring nach Grossregionen</a>.</p>
 <p>Ich will zeigen, dass nicht in allen Regionen im April 2020 zu Übersterblichkeiten kam und dass auch nicht alle Schweizer über 65 Jahren sich fürchten müssen.</p>
-<pre><code>## 
-## Attaching package: &#39;dplyr&#39;
-## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag
-## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union</code></pre>
-<div class="figure" style="text-align: center"><span id="fig:fig-ch-age"></span>
-<img src="/post/2020-04-29-die-zahl-der-toten-in-den-regionen_files/figure-html/fig-ch-age-1.png" alt="Datenquelle: BFS, Grafik by Norman Bieri" width="672" />
+<table>
+<thead>
+<tr class="header">
+<th align="left">kanton2</th>
+<th align="right">N</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Zürich</td>
+<td align="right">224</td>
+</tr>
+<tr class="even">
+<td align="left">Bern</td>
+<td align="right">174</td>
+</tr>
+<tr class="odd">
+<td align="left">Vaud</td>
+<td align="right">158</td>
+</tr>
+<tr class="even">
+<td align="left">Ticino</td>
+<td align="right">112</td>
+</tr>
+<tr class="odd">
+<td align="left">Genève</td>
+<td align="right">111</td>
+</tr>
+<tr class="even">
+<td align="left">Aargau</td>
+<td align="right">104</td>
+</tr>
+<tr class="odd">
+<td align="left">Valais</td>
+<td align="right">85</td>
+</tr>
+<tr class="even">
+<td align="left">St. Gallen</td>
+<td align="right">70</td>
+</tr>
+<tr class="odd">
+<td align="left">Luzern</td>
+<td align="right">69</td>
+</tr>
+<tr class="even">
+<td align="left">Fribourg</td>
+<td align="right">57</td>
+</tr>
+<tr class="odd">
+<td align="left">Solothurn</td>
+<td align="right">51</td>
+</tr>
+<tr class="even">
+<td align="left">Basel-Landschaft</td>
+<td align="right">49</td>
+</tr>
+<tr class="odd">
+<td align="left">Neuchâtel</td>
+<td align="right">43</td>
+</tr>
+<tr class="even">
+<td align="left">Basel-Stadt</td>
+<td align="right">36</td>
+</tr>
+<tr class="odd">
+<td align="left">Grischun</td>
+<td align="right">36</td>
+</tr>
+<tr class="even">
+<td align="left">Thurgau</td>
+<td align="right">35</td>
+</tr>
+<tr class="odd">
+<td align="left">Schwyz</td>
+<td align="right">21</td>
+</tr>
+<tr class="even">
+<td align="left">Zug</td>
+<td align="right">16</td>
+</tr>
+<tr class="odd">
+<td align="left">Jura</td>
+<td align="right">15</td>
+</tr>
+<tr class="even">
+<td align="left">Schaffhausen</td>
+<td align="right">10</td>
+</tr>
+<tr class="odd">
+<td align="left">Uri</td>
+<td align="right">10</td>
+</tr>
+<tr class="even">
+<td align="left">Appenzell Ausserrhoden</td>
+<td align="right">8</td>
+</tr>
+<tr class="odd">
+<td align="left">Nidwalden</td>
+<td align="right">8</td>
+</tr>
+<tr class="even">
+<td align="left">Glarus</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">Obwalden</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">Appenzell Innerrhoden</td>
+<td align="right">2</td>
+</tr>
+</tbody>
+</table>
+<div class="figure" style="text-align: center"><span id="fig:fig-1"></span>
+<img src="/post/2020-04-29-die-zahl-der-toten-in-den-regionen_files/figure-html/fig-1-1.png" alt="Erfasste Todesfälle 2000 bis 2020" width="672" />
 <p class="caption">
-Figure 1: Datenquelle: BFS, Grafik by Norman Bieri
+Figure 1: Erfasste Todesfälle 2000 bis 2020
 </p>
 </div>
-<p>Abbildung <a href="#fig:fig-ch-age">1</a> macht eine ähnliche Bandbreite von rund 50 Fällen für die beiden Altersgruppen <em>0-64</em> und <em>65-79</em> deutlich, wobei die Bandbreite für die Altergruppe <em>80+</em> sicher 200 Fälle beträgt.</p>
-<div class="figure"><span id="fig:fig-k-age"></span>
-<img src="/post/2020-04-29-die-zahl-der-toten-in-den-regionen_files/figure-html/fig-k-age-1.png" alt="Todesfälle für die Kantone Genf, Zürich und Graubünden 2000-2020" width="33%" /><img src="/post/2020-04-29-die-zahl-der-toten-in-den-regionen_files/figure-html/fig-k-age-2.png" alt="Todesfälle für die Kantone Genf, Zürich und Graubünden 2000-2020" width="33%" /><img src="/post/2020-04-29-die-zahl-der-toten-in-den-regionen_files/figure-html/fig-k-age-3.png" alt="Todesfälle für die Kantone Genf, Zürich und Graubünden 2000-2020" width="33%" />
+<p>Abbildung <a href="#fig:fig-1">1</a> macht eine ähnliche Bandbreite von rund 50 Fällen für die beiden Altersgruppen <em>0-64</em> und <em>65-79</em> deutlich, wobei die Bandbreite für die Altergruppe <em>80+</em> sicher 200 Fälle beträgt und ein Durchhängen zeigt. Ein deutliches Zeichen von saisonalen Häufigkeiten.</p>
+<p>Der Peak im April 2020 hebt sich in der ältesten Altergruppe extrem und bei den Jüngeren viel weniger deutlich hervor. <strong>Vor 2020 gab es auch Übersterblichkeiten von ähnlichem Ausmass</strong>.</p>
+<p>Ausserdem zeichnet sich bei den Berufstätigen ein Rückgang ab. Im Jahr 2020 liegen die Fallzahlen auf tiefstem Niveau seit 20 Jahren. Daraus folgt, dass die Fallzahlen bei den Nicht-Berufstätigen steigen müssen oder sie erscheinen in der Statistik über Auslandschweizer. <a href="https://www.srf.ch/news/schweiz/zahl-der-auslandschweizer-der-viertgroesste-kanton">Die Auslandschweizergemeinde wächst jährlich im Schnitt um fast 12’000 Personen</a>.</p>
+</div>
+<div id="erfasste-todesfälle-in-den-kantonen" class="section level1">
+<h1>Erfasste Todesfälle in den Kantonen</h1>
+<pre><code>## Warning: Removed 9 rows containing missing values (geom_path).
+
+## Warning: Removed 9 rows containing missing values (geom_path).
+
+## Warning: Removed 9 rows containing missing values (geom_path).
+
+## Warning: Removed 9 rows containing missing values (geom_path).
+
+## Warning: Removed 9 rows containing missing values (geom_path).
+
+## Warning: Removed 9 rows containing missing values (geom_path).
+
+## Warning: Removed 9 rows containing missing values (geom_path).
+
+## Warning: Removed 9 rows containing missing values (geom_path).
+
+## Warning: Removed 9 rows containing missing values (geom_path).</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:fig-2"></span>
+<img src="/post/2020-04-29-die-zahl-der-toten-in-den-regionen_files/figure-html/fig-2-1.png" alt="Erfasste Todesfälle 2000 bis 2020" width="33%" /><img src="/post/2020-04-29-die-zahl-der-toten-in-den-regionen_files/figure-html/fig-2-2.png" alt="Erfasste Todesfälle 2000 bis 2020" width="33%" /><img src="/post/2020-04-29-die-zahl-der-toten-in-den-regionen_files/figure-html/fig-2-3.png" alt="Erfasste Todesfälle 2000 bis 2020" width="33%" /><img src="/post/2020-04-29-die-zahl-der-toten-in-den-regionen_files/figure-html/fig-2-4.png" alt="Erfasste Todesfälle 2000 bis 2020" width="33%" /><img src="/post/2020-04-29-die-zahl-der-toten-in-den-regionen_files/figure-html/fig-2-5.png" alt="Erfasste Todesfälle 2000 bis 2020" width="33%" /><img src="/post/2020-04-29-die-zahl-der-toten-in-den-regionen_files/figure-html/fig-2-6.png" alt="Erfasste Todesfälle 2000 bis 2020" width="33%" /><img src="/post/2020-04-29-die-zahl-der-toten-in-den-regionen_files/figure-html/fig-2-7.png" alt="Erfasste Todesfälle 2000 bis 2020" width="33%" /><img src="/post/2020-04-29-die-zahl-der-toten-in-den-regionen_files/figure-html/fig-2-8.png" alt="Erfasste Todesfälle 2000 bis 2020" width="33%" /><img src="/post/2020-04-29-die-zahl-der-toten-in-den-regionen_files/figure-html/fig-2-9.png" alt="Erfasste Todesfälle 2000 bis 2020" width="33%" />
 <p class="caption">
-Figure 2: Todesfälle für die Kantone Genf, Zürich und Graubünden 2000-2020
+Figure 2: Erfasste Todesfälle 2000 bis 2020
+</p>
+</div>
+<p><em>Note: Die y-Achse ist für jeden Kanton einzeln skaliert !!</em></p>
+<p>In Abbildung <a href="#fig:fig-2">2</a> lassen die grössten Kantone regionale Unterschied erkennen, die auch vor dem Jahr 2020 da waren. Im April 2020 wurden in den Regionen Genfersee, Basel und Tessin mehr Todesfälle erfasst als in anderen Jahren.</p>
+</div>
+<div id="kummulierte-todesfälle" class="section level1">
+<h1>Kummulierte Todesfälle</h1>
+<p>Da eine grosse Streuung im Verlauf der Zeit üblich ist, liefert ein Vergleich der kummulierten Todesfäller der ersten 15 Kalenderwochen ein anschauliches Mass.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig-3"></span>
+<img src="/post/2020-04-29-die-zahl-der-toten-in-den-regionen_files/figure-html/fig-3-1.png" alt="Kummulierte Todesfälle bis Kalenderwoche 15" width="33%" /><img src="/post/2020-04-29-die-zahl-der-toten-in-den-regionen_files/figure-html/fig-3-2.png" alt="Kummulierte Todesfälle bis Kalenderwoche 15" width="33%" /><img src="/post/2020-04-29-die-zahl-der-toten-in-den-regionen_files/figure-html/fig-3-3.png" alt="Kummulierte Todesfälle bis Kalenderwoche 15" width="33%" /><img src="/post/2020-04-29-die-zahl-der-toten-in-den-regionen_files/figure-html/fig-3-4.png" alt="Kummulierte Todesfälle bis Kalenderwoche 15" width="33%" /><img src="/post/2020-04-29-die-zahl-der-toten-in-den-regionen_files/figure-html/fig-3-5.png" alt="Kummulierte Todesfälle bis Kalenderwoche 15" width="33%" /><img src="/post/2020-04-29-die-zahl-der-toten-in-den-regionen_files/figure-html/fig-3-6.png" alt="Kummulierte Todesfälle bis Kalenderwoche 15" width="33%" /><img src="/post/2020-04-29-die-zahl-der-toten-in-den-regionen_files/figure-html/fig-3-7.png" alt="Kummulierte Todesfälle bis Kalenderwoche 15" width="33%" /><img src="/post/2020-04-29-die-zahl-der-toten-in-den-regionen_files/figure-html/fig-3-8.png" alt="Kummulierte Todesfälle bis Kalenderwoche 15" width="33%" /><img src="/post/2020-04-29-die-zahl-der-toten-in-den-regionen_files/figure-html/fig-3-9.png" alt="Kummulierte Todesfälle bis Kalenderwoche 15" width="33%" />
+<p class="caption">
+Figure 3: Kummulierte Todesfälle bis Kalenderwoche 15
+</p>
+</div>
+<p>In Abbildung <a href="#fig:fig-3">3</a> …</p>
+<div class="figure" style="text-align: center"><span id="fig:fig-4"></span>
+<img src="/post/2020-04-29-die-zahl-der-toten-in-den-regionen_files/figure-html/fig-4-1.png" alt="Kummulierte Todesfälle Schweiz bis Kalenderwoche 15" width="672" />
+<p class="caption">
+Figure 4: Kummulierte Todesfälle Schweiz bis Kalenderwoche 15
 </p>
 </div>
 </div>

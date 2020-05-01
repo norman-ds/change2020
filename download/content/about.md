@@ -3,7 +3,10 @@ date: "30.April 2020"
 title: About
 ---
 
-Ich bin teilzeit Data Science Engineer. Während meiner beruflichen Laufbahn entwickelte ich erfolgreich digitale Strategien mit diversen Technologien und Plattformen, damit Computer ihre hilfreiche Rolle im täglichen Business wahrnehmen. Mit über 25 Jahren Erfahrung in Industrieunternehmen, Detailhandelskonzern, Politik und Gesundheitsversorgung arbeite ich nach wie vor leidenschaftlich für die Schnittstelle Mensch Computer. Ich habe mich laufend über die Jahre weitergebildet und ist ein Absolvent der School of Engineering an der Zürcher Fachhochschule ZHAW mit Abschluss in Datenanalyse und Prozessdesign sowie ein Absolvent der HSR mit Abschluss in Softwareengineering MAS-SE.
+Ich bin Data Science Engineer mit 25 Jahren Berufserfahrung in der Gesundheitsversorgung. Während meiner beruflichen Laufbahn entwickelte ich erfolgreich digitale Lösungen mit unterschiedlichen Technologien und Plattformen, damit Computer ihre hilfreiche Rolle im täglichen Business wahrnehmen können. Ich habe heute meisten aus statistischer Sicht den Fokus auf [R](https://de.wikipedia.org/wiki/R_(Programmiersprache)), da laufende Entwicklungen zu der Software vielversprechend bleiben.
+
+Meine Homepage finden Sie unter der Adresse www.puntaminar.ch
+
 
 This website is created with [**blogdown**](https://github.com/rstudio/blogdown) package. The theme was forked from [@jrutheiser/hugo-lithium-theme](https://github.com/jrutheiser/hugo-lithium-theme) and modified by [Yihui Xie](https://github.com/yihui/hugo-lithium).
 
