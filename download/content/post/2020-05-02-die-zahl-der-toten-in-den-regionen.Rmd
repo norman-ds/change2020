@@ -1,0 +1,124 @@
+---
+title: Kantonale Zahlen der Toten
+author: Norman
+date: '2020-05-02'
+categories:
+  - COVID19
+tags:
+  - Kanton
+  - Todesfall
+slug: die-zahl-der-toten-in-den-regionen
+editor_options:
+  chunk_output_type: console
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+Vor einer Woche habe ich beschrieben, warum die [Die Zahl der Toten](/2020/04/22/die-zahl-der-toten/) eine relativ zuverlässige Datenerfassung ist. Zudem konnte ich zeigen, dass es in der Schweiz seit 2013 immer wieder zu einer Übersterblichkeit während der Wintersaison kam. 
+
+![](/images/2020-04-29-die-zahl-der-toten-in-den-regionen_files/gd-d-14.03.04.03-wr-computed_thumbnail.png){width=80%}
+
+
+Die [Grafik](https://www.bfs.admin.ch/bfs/de/home/statistiken/gesundheit/gesundheitszustand/sterblichkeit-todesursachen.html) vom Bundesamt für Statistik ist zwar inhaltlich korrekt, jedoch unterlässt sie regionale Unterschiede. Tritt in einer Region eine Unregelmässigkeit auf, ist der Betrachter versucht zu glauben, in jedem Kanton bestehe eine ähnlich ungewöhliche Abweichung.
+
+Zudem hat die Altersgruppe *über 65* zuwenig Aussagekraft. Schweizer haben heute eine Lebenserwartung von über 80 Jahren. Auch wenn Arbeitnehmer mit 65 Jahren in der Ruhestand gehen, ist für die aktiven Senioren über mehrere Jahre nicht mit dem Tod zu rechnen.
+
+# Todesfälle nach Altersgruppen
+
+Ich will zeigen, dass kummulierte Fallzahlen klassiert in drei Altersgruppen mehr Aussagekraft und Zuversicht vermitteln.
+
+
+
+```{r fig-1, echo=F, out.width=c('50%', '50%'), fig.show='hold', fig.cap='Todesfälle im Verlauf und kummuliert bis Kalenderwoche 15'}
+knitr::include_graphics("/images/2020-05-02-die-zahl-der-toten-in-den-regionen_files/figlineCH_001.png")
+knitr::include_graphics("/images/2020-05-02-die-zahl-der-toten-in-den-regionen_files/figbarCH_001.png")
+```
+
+
+Abbildung \@ref(fig:fig-1) macht eine ähnliche Bandbreite von rund 50 Fällen für die beiden Altersgruppen *0-64* und *65-79* deutlich, wobei die Bandbreite für die Altergruppe *80+* sicher 200 Fälle beträgt und ein Durchhängen zeigt. Ein deutliches Zeichen von saisonalen Häufigkeiten.
+
+Der Peak im April 2020 hebt sich in der ältesten Altergruppe extrem und bei den Jüngeren viel weniger deutlich hervor. **Vor 2020 gab es auch Übersterblichkeiten von ähnlichem Ausmass**. 
+
+Ausserdem zeichnet sich bei den Berufstätigen ein Rückgang ab. Im Jahr 2020 liegen die Fallzahlen auf tiefstem Niveau seit 20 Jahren. Daraus folgt, dass die Fallzahlen bei den Nicht-Berufstätigen steigen müssen oder sie erscheinen in der Statistik über Auslandschweizer. [Die Auslandschweizergemeinde wächst jährlich im Schnitt um fast 12'000 Personen](https://www.srf.ch/news/schweiz/zahl-der-auslandschweizer-der-viertgroesste-kanton).
+
+Im Jahr 2015 hatten wir eine [starke Grippenwelle in der Schweiz](https://www.bfs.admin.ch/bfs/de/home/statistiken/gesundheit/gesundheitszustand/sterblichkeit-todesursachen.assetdetail.3742835.html), dabei sind in den ersten 15 Kalenderwochen mehr Todesfälle erfasst worden.
+
+
+# Erfasste Todesfälle in den Kantonen
+
+Das BFS bietet detailiertere Daten nach Alter und Regionen über die letzten zwanzig Jahre und seit dem 28.April 2020 ein [Mortalitätsmonitoring nach Grossregionen](https://experimental.bfs.admin.ch/de/momo.html). 
+
+Im folgenden wählte ich jeweils die bevölkerungsstärksten Kantone, um Kantone mit vergleichbaren Strukturen gegenüber zugestellen.
+
+* [Grossstadt-Land]
+* [Grossstadt]
+* [Bergkanton]
+* [Stadt-Land]
+
+
+## Grossstadt-Land
+
+```{r fig-2, echo=F, out.width=c('50%', '50%'), fig.show='hold', fig.cap='Todesfälle im Verlauf und kummuliert bis Kalenderwoche 15'}
+knitr::include_graphics("/images/2020-05-02-die-zahl-der-toten-in-den-regionen_files/figlineVD_001.png")
+knitr::include_graphics("/images/2020-05-02-die-zahl-der-toten-in-den-regionen_files/figbarVD_001.png")
+knitr::include_graphics("/images/2020-05-02-die-zahl-der-toten-in-den-regionen_files/figlineBE_001.png")
+knitr::include_graphics("/images/2020-05-02-die-zahl-der-toten-in-den-regionen_files/figbarBE_001.png")
+knitr::include_graphics("/images/2020-05-02-die-zahl-der-toten-in-den-regionen_files/figlineZH_001.png")
+knitr::include_graphics("/images/2020-05-02-die-zahl-der-toten-in-den-regionen_files/figbarZH_001.png")
+```
+
+*Note: Die y-Achse ist für jeden Kanton einzeln skaliert !!*
+
+In Abbildung \@ref(fig:fig-2) lassen die grössten drei Stadt-Land Kantone regionale Unterschied erkennen, die auch vor dem Jahr 2020 da waren. Kummuliert über den Winter, wie in den Garfiken rechts dargestellt, sind jedoch die Unterschiede gering.
+
+## Grossstadt
+
+```{r fig-3, echo=F, out.width=c('50%', '50%'), fig.show='hold', fig.cap='Todesfälle im Verlauf und kummuliert bis Kalenderwoche 15'}
+knitr::include_graphics("/images/2020-05-02-die-zahl-der-toten-in-den-regionen_files/figlineGE_001.png")
+knitr::include_graphics("/images/2020-05-02-die-zahl-der-toten-in-den-regionen_files/figbarGE_001.png")
+knitr::include_graphics("/images/2020-05-02-die-zahl-der-toten-in-den-regionen_files/figlineBS_001.png")
+knitr::include_graphics("/images/2020-05-02-die-zahl-der-toten-in-den-regionen_files/figbarBS_001.png")
+```
+
+*Note: Die y-Achse ist für jeden Kanton einzeln skaliert !!*
+
+
+In Abbildung \@ref(fig:fig-3) lassen sich die zwei Stadt-Kantone Genf und Basel-Stadt vergleichen. Dabei wird in der Altersgruppe *80 und älter* die grosse Streuung über die letzten zwanzig Jahre sichtbar.
+
+## Bergkanton
+
+
+```{r fig-4, echo=F, out.width=c('50%', '50%'), fig.show='hold', fig.cap='Todesfälle im Verlauf und kummuliert bis Kalenderwoche 15'}
+knitr::include_graphics("/images/2020-05-02-die-zahl-der-toten-in-den-regionen_files/figlineTI_001.png")
+knitr::include_graphics("/images/2020-05-02-die-zahl-der-toten-in-den-regionen_files/figbarTI_001.png")
+knitr::include_graphics("/images/2020-05-02-die-zahl-der-toten-in-den-regionen_files/figlineVS_001.png")
+knitr::include_graphics("/images/2020-05-02-die-zahl-der-toten-in-den-regionen_files/figbarVS_001.png")
+knitr::include_graphics("/images/2020-05-02-die-zahl-der-toten-in-den-regionen_files/figlineGR_001.png")
+knitr::include_graphics("/images/2020-05-02-die-zahl-der-toten-in-den-regionen_files/figbarGR_001.png")
+```
+
+*Note: Die y-Achse ist für jeden Kanton einzeln skaliert !!*
+
+
+In Abbildung \@ref(fig:fig-4) in den kummulierten Garfiken sind die Unterschiede zwischen den Bergkantonen klein. Gut erkennbar sind im Kanton Tessin die vielen Todesfälle aus dem Winter 2020.
+
+## Stadt-Land
+
+
+```{r fig-5, echo=F, out.width=c('50%', '50%'), fig.show='hold', fig.cap='Todesfälle im Verlauf und kummuliert bis Kalenderwoche 15'}
+knitr::include_graphics("/images/2020-05-02-die-zahl-der-toten-in-den-regionen_files/figlineAG_001.png")
+knitr::include_graphics("/images/2020-05-02-die-zahl-der-toten-in-den-regionen_files/figbarAG_001.png")
+knitr::include_graphics("/images/2020-05-02-die-zahl-der-toten-in-den-regionen_files/figlineSG_001.png")
+knitr::include_graphics("/images/2020-05-02-die-zahl-der-toten-in-den-regionen_files/figbarSG_001.png")
+knitr::include_graphics("/images/2020-05-02-die-zahl-der-toten-in-den-regionen_files/figlineLU_001.png")
+knitr::include_graphics("/images/2020-05-02-die-zahl-der-toten-in-den-regionen_files/figbarLU_001.png")
+```
+
+
+*Note: Die y-Achse ist für jeden Kanton einzeln skaliert !!*
+
+
+Auch in Abbildung \@ref(fig:fig-5) ist die grosse Streuung über die Jahre in der Altersgruppe *über 80 Jahre* erkennbar.
