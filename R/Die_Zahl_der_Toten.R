@@ -1,22 +1,29 @@
+# Erstellt für jeden Kanton zwei Charts und speicher diese 
+##########################################
 # Lesen der Daten und als List zur Verfügung stellen
 # Zwei Funktionen für linplots und barlots
 # workflow für erstellen aller charts und speichern in directory
 
 # file path mit Daten
 datapath <- file.path('..','download','data')
+# file path für Charts (es werden Verzeichnisse nach Timestamp angelegt)
 imagepath <- file.path('..','images')
 
 library(ggplot2)
 library(dplyr)
 library(readr)
 
+
+# liest todesfalldaten und regionen
+# gibt liste mit daten zürück
 fundeath <- function(fpath) {
   
   # (20MB) Todesfälle der Jahre 2000-2020 nach Fünf-Jahres-Altersgruppe, Geschlecht, Woche und Kanton
-  fn4 <- 'ts-q-01.04.02.01.30.csv' 
+  fn4 <- 'ts-q-01.04.02.01.30.csv'
+  freg <- 'grossregionCH.csv'
   
   # Kantonsliste mit KZ und Namen
-  dfkanton <- readr::read_delim(file.path(fpath,'grossregionCH.csv'),
+  dfkanton <- readr::read_delim(file.path(fpath,freg),
                                delim = ';',
                                col_types = cols(.default = col_character())) 
   
@@ -50,13 +57,15 @@ fundeath <- function(fpath) {
 
 
 
+# erstellt ggplot mit liniendiagram
 plotline <- function(datalist, kanton) {
   
   ##############
   # Funktion für line-plot nach Region
 
     # Grafiktitel
-    my_titel <- sprintf('Region %s',datalist$regions$kanton2[datalist$regions$kanton==kanton])
+    my_titel <- sprintf('Wöchentliche Fälle, %s',
+                        datalist$regions$kanton2[datalist$regions$kanton==kanton])
     
     # Koordinaten für Grafiktext
     xtxt <- datalist$cw + 1
@@ -90,13 +99,17 @@ plotline <- function(datalist, kanton) {
   
 }  
 
+
+# erstellt ggplot mit balkendiagram
 plotbar <- function(datalist, kanton) {
   
   ##############
   # Funktion für bar-plot nach Region
 
     # Grafiktitel
-    my_titel <- sprintf('Region %s',datalist$regions$kanton2[datalist$regions$kanton==kanton])
+    my_titel <- sprintf('Fälle (Summe KW 1-%s), %s',
+                        datalist$cw,
+                        datalist$regions$kanton2[datalist$regions$kanton==kanton])
   
     # return barplot
     dfbar <- datalist$data %>% 
@@ -153,7 +166,7 @@ plotline(ld,'CH')
 plotbar(ld,'CH')
 
 
-# save the images
+# speichert charts
 create_imgages <- function(regions) {
   
   imgpath <- file.path(imagepath,format(Sys.time(),'%Y%m%d_%H%M%S'))
@@ -180,4 +193,5 @@ create_imgages <- function(regions) {
   return(NULL)
 }
 
+# erstellen der charts
 create_imgages(ld$regions$kanton)
