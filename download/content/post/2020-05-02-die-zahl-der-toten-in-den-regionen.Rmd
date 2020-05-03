@@ -28,7 +28,7 @@ Zudem hat die Altersgruppe *über 65* zuwenig Aussagekraft. Schweizer haben heut
 
 # Todesfälle nach Altersgruppen
 
-Ich will zeigen, dass kummulierte Fallzahlen klassiert in drei Altersgruppen mehr Aussagekraft und Zuversicht vermitteln.
+Ich will zeigen, dass kumulierte Fallzahlen klassiert in drei Altersgruppen mehr Aussagekraft und Zuversicht vermitteln.
 
 
 
@@ -38,9 +38,9 @@ knitr::include_graphics("/images/2020-05-02-die-zahl-der-toten-in-den-regionen_f
 ```
 
 
-Abbildung \@ref(fig:fig-1) macht eine ähnliche Bandbreite (Verlaufsdaten der letzten 10 Jahre) von rund 50 Fällen für die beiden Altersgruppen *0-64* und *65-79* deutlich, wobei die Bandbreite für die Altergruppe *80+* sicher 200 Fälle beträgt und ein Durchhängen zeigt. Ein deutliches Zeichen von saisonalen Abhängigkeit.
+Abbildung \@ref(fig:fig-1) macht eine ähnliche Bandbreite (Verlauf der letzten 10 Jahre) von rund 50 Fällen für die beiden Altersgruppen *0-64* und *65-79* deutlich, wobei die Bandbreite für die Altersgruppe *80+* sicher 200 Fälle beträgt und ein Durchhängen zeigt. Ein deutliches Zeichen von saisonalen Abhängigkeit.
 
-Der Peak im April 2020 hebt sich in der ältesten Altergruppe extrem und bei den Jüngeren viel weniger deutlich hervor. **Vor 2020 gab es auch Übersterblichkeiten von ähnlichem Ausmass**. 
+Der Peak im April 2020 hebt sich in der ältesten Altersgruppe extrem und bei den Jüngeren viel weniger deutlich hervor. **Vor 2020 gab es auch Übersterblichkeiten von ähnlichem Ausmass**. 
 
 Im Jahr 2015 hatten wir eine [starke Grippenwelle in der Schweiz](https://www.bfs.admin.ch/bfs/de/home/statistiken/gesundheit/gesundheitszustand/sterblichkeit-todesursachen.assetdetail.3742835.html), dabei sind in den ersten 15 Kalenderwochen mehr Todesfälle erfasst worden.
 
@@ -49,9 +49,9 @@ Ausserdem zeichnet sich bei den Berufstätigen ein Rückgang ab. Im Jahr 2020 li
 
 # Erfasste Todesfälle in den Kantonen
 
-Das BFS bietet detailiertere Daten nach Alter und Regionen über die letzten zwanzig Jahre und seit dem 28.April 2020 ein [Mortalitätsmonitoring nach Grossregionen](https://experimental.bfs.admin.ch/de/momo.html). Die Zahlen des Mortalitätsmonitorings basieren auf den täglichen Zivilstandsmeldungen, wobei in der Regel nach neun Tagen ein genügend grosser Anteil (> 85%) der Todesfälle registriert, sodass die Schätzung der tatsächlichen Zahl der Todesfälle auf einer breiten Datenbasis möglich ist. 
+Das BFS bietet detaillierte Daten nach Alter und Regionen über die letzten zwanzig Jahre und seit dem 28.April 2020 ein [Mortalitätsmonitoring nach Grossregionen](https://experimental.bfs.admin.ch/de/momo.html). Die Zahlen des Mortalitätsmonitorings basieren auf den täglichen Zivilstandsmeldungen, wobei in der Regel nach neun Tagen ein genügend grosser Anteil (> 85%) der Todesfälle registriert, sodass die Schätzung der tatsächlichen Zahl der Todesfälle auf einer breiten Datenbasis möglich ist. 
 
-Im folgenden wählte ich jeweils die bevölkerungsstärksten Kantone, um Kantone mit vergleichbaren Strukturen gegenüber zugestellen.
+Im folgenden wählte ich jeweils die bevölkerungsstärksten Kantone, um Kantone mit vergleichbaren Strukturen gegenüber zustellen.
 
 * [Grossstadt-Land Kanton] (VD, BE, ZH)
 * [Grossstadt Kanton] (GE, BS)
@@ -75,7 +75,7 @@ knitr::include_graphics("/images/2020-05-02-die-zahl-der-toten-in-den-regionen_f
 
 *Note: Die y-Achse ist für jeden Kanton einzeln skaliert !!*
 
-In Abbildung \@ref(fig:fig-2) lassen die grössten drei Stadt-Land Kantone regionale Unterschied erkennen, die auch vor dem Jahr 2020 da waren. Kummuliert über den Winter, wie in den Garfiken rechts dargestellt, sind jedoch die Unterschiede gering.
+In Abbildung \@ref(fig:fig-2) lassen die grössten drei Stadt-Land Kantone regionale Unterschied erkennen, die auch vor dem Jahr 2020 da waren. Kumuliert über den Winter, wie in den Grafiken rechts dargestellt, sind jedoch die Unterschiede gering.
 
 ## Grossstadt Kanton
 
@@ -95,7 +95,7 @@ In Abbildung \@ref(fig:fig-3) lassen sich die zwei Stadt-Kantone Genf und Basel-
 
 ## Bergkanton
 
-Eine Gegenüberstellung der Kantone Ticino, Valais und Grischun, wobei in der Ostschweiz weniger bevölkerungsdichte Städte vertreten sind.
+Eine Gegenüberstellung der Kantone Ticino, Valais und Grischun, wobei in der Ostschweiz bevölkerungsdichte Flächen geringer vertreten sind.
 
 ```{r fig-4, echo=F, out.width=c('50%', '50%'), fig.show='hold', fig.cap='Todesfälle im Verlauf und kummuliert bis Kalenderwoche 15'}
 knitr::include_graphics("/images/2020-05-02-die-zahl-der-toten-in-den-regionen_files/figlineTI_001.png")
@@ -109,7 +109,7 @@ knitr::include_graphics("/images/2020-05-02-die-zahl-der-toten-in-den-regionen_f
 *Note: Die y-Achse ist für jeden Kanton einzeln skaliert !!*
 
 
-In Abbildung \@ref(fig:fig-4) in den kummulierten Garfiken sind die Unterschiede zwischen den Bergkantonen klein. Gut erkennbar sind im Kanton Tessin die vielen Todesfälle aus dem Winter 2020.
+In Abbildung \@ref(fig:fig-4) in den kumulierten Grafiken sind die Unterschiede zwischen den Bergkantonen klein. Gut erkennbar sind im Kanton Tessin die vielen Todesfälle aus dem Winter 2020.
 
 ## Stadt-Land Kanton
 
@@ -130,9 +130,7 @@ knitr::include_graphics("/images/2020-05-02-die-zahl-der-toten-in-den-regionen_f
 
 Auch in Abbildung \@ref(fig:fig-5) ist die grosse Streuung über die Jahre in der Altersgruppe *über 80 Jahre* erkennbar.
 
-Regional mag es in einzelnen Altersgruppen zu Übersterblichkeiten gekommen sein, jedoch die Mehrheit der Regionen zeigen keine aussergewöhnliche Todesfallzahlen. **Wir dürfen also mit gutem Mutes zuversichtlich und optimistisch Vorwärtsblicken.**
+Regional mag es in einzelnen Altersgruppen zu Übersterblichkeiten gekommen sein, jedoch die Mehrheit der Regionen zeigen keine aussergewöhnliche Todesfallzahlen. **Die Erfassung der Todesfälle im Winter 2020 lassen uns weiterhin zuversichtlich und optimistisch in die Zukunft blicken.**
 
-Anders sieht es teilweise in den europäischen Ländern aus.
-https://www.euromomo.eu/graphs-and-maps/#excess-mortality
 
 

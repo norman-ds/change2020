@@ -3,7 +3,7 @@ date: "30.April 2020"
 title: About
 ---
 
-Ich bin Data Science Engineer mit 25 Jahren Berufserfahrung in der Gesundheitsversorgung. Während meiner beruflichen Laufbahn entwickelte ich erfolgreich digitale Lösungen mit unterschiedlichen Technologien und Plattformen, damit Computer ihre hilfreiche Rolle im täglichen Business wahrnehmen können. Ich habe heute meisten aus statistischer Sicht den Fokus auf [R](https://de.wikipedia.org/wiki/R_(Programmiersprache)), da laufende Entwicklungen zu der Software vielversprechend bleiben.
+Daten sind die Währung der Unternehmer der Zukunft. Ich bin Data Science Engineer mit 15 Jahren Berufserfahrung in der Gesundheitsversorgung. Während meiner beruflichen Laufbahn entwickelte ich erfolgreich digitale Lösungen mit unterschiedlichen Technologien und Plattformen, damit Computer ihre hilfreiche Rolle im täglichen Business wahrnehmen können. Ich habe heute meisten aus statistischer Sicht den Fokus auf [R](https://de.wikipedia.org/wiki/R_(Programmiersprache)), da international laufende Entwicklungen vielversprechend bleiben.
 
 Meine Homepage finden Sie unter der Adresse www.puntaminar.ch
 
