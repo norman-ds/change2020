@@ -1,4 +1,12 @@
+# Hugo file
+blogdown
+public
+_book
+bin
+
+# File handler
 .DS_Store
+Thumbs.db
 
 # History files
 .Rhistory
