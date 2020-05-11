@@ -3,7 +3,7 @@
 [build]
   # Directory to change to before starting a build.
 base = "download/"
-publish = "download/public"
+publish = "download/public/"
 command = "hugo --gc --minify"
 
 [context.production.environment]
