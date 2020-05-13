@@ -1,14 +1,11 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: my-first-test
 
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
+# Controls when the action will run. 
 on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+  schedule:
+    - cron:  '5-59/15 * * * *' # run at 5', 20', 35', 50'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
