@@ -5,7 +5,10 @@
 # workflow für erstellen aller charts und speichern in directory
 
 # file path mit Daten
-datapath <- file.path('..','download','data')
+datapath <- file.path('..','data')
+metafile <- file.path(datapath, 'todesfaelle_meta.xlsx')
+datafile <- file.path(datapath, 'todesfaelle_woche.csv')
+regiofile <- file.path(datapath, 'grossregionCH.csv')
 # file path für Charts (es werden Verzeichnisse nach Timestamp angelegt)
 imagepath <- file.path('..','images')
 
@@ -14,22 +17,35 @@ library(dplyr)
 library(readr)
 
 
+# Kantonsliste mit KZ und Namen
+readr::read_delim(regiofile,
+                  delim = ';',
+                  col_types = cols(.default = col_character())) %>% 
+  glimpse()
+
+# Todesfälle 2000-2020
+readr::read_delim(datafile,
+                  delim = ';',
+                  col_types = cols(.default = col_character())) %>% 
+  glimpse()
+
+# Todesfälle Metadaten
+readxl::excel_sheets(metafile)
+
+
+
 # liest todesfalldaten und regionen
 # gibt liste mit daten zürück
-fundeath <- function(fpath) {
-  
-  # (20MB) Todesfälle der Jahre 2000-2020 nach Fünf-Jahres-Altersgruppe, Geschlecht, Woche und Kanton
-  fn4 <- 'ts-q-01.04.02.01.30.csv'
-  freg <- 'grossregionCH.csv'
+fundeath <- function(fdata, fregio) {
   
   # Kantonsliste mit KZ und Namen
-  dfkanton <- readr::read_delim(file.path(fpath,freg),
+  dfkanton <- readr::read_delim(fregio,
                                delim = ';',
                                col_types = cols(.default = col_character())) 
   
   ##############
   # dataframe nach Kanton und drei Altersgruppen
-  dfdeath <- readr::read_delim(file.path(fpath,fn4),
+  dfdeath <- readr::read_delim(fdata,
                                delim = ';',
                                col_types = cols(.default = col_character())) %>%
     filter(AGE != '_T', SEX=='T') %>%
@@ -72,6 +88,10 @@ plotline <- function(datalist, kanton) {
     ytxt <- filter(datalist$data, kanton==!!kanton, year==datalist$year, cw==datalist$cw) 
     ytxt <- unlist(ytxt$value)
     
+    # Koordinaten für vertikale Line
+    xlin <- datalist$cw
+    ylin <- min(ytxt)
+    
     
     # return lineplot
     datalist$data %>%
@@ -91,12 +111,12 @@ plotline <- function(datalist, kanton) {
       geom_label(x=xtxt, y=ytxt[3], label='Altersgruppe 80 Jahre und älter', size=2, color='#69b3a3', fill='white', hjust = 0) +
       geom_label(x=xtxt, y=ytxt[2], label='Altersgruppe 65 -79 Jahre', size=2, color='#69b3a3', fill='white', hjust = 0) +
       geom_label(x=xtxt, y=ytxt[1], label='Altersgruppe 0 - 64 Jahre', size=2, color='#69b3a3', fill='white', hjust = 0) +
+      geom_vline(xintercept = xlin, colour = "lightblue") +
+      geom_label(x=xlin, y=ylin, label=xlin, size=2, color='lightblue', fill='white', vjust = 1) +
       theme(
         legend.position="none",
         plot.title = element_text(size=14)
       ) 
-  
-  
 }  
 
 
@@ -149,7 +169,7 @@ plotbar <- function(datalist, kanton) {
   
   
 # load list of data
-ld <- fundeath(datapath)
+ld <- fundeath(datafile, regiofile)
 
 # tabel of hightest case numbers
 ld$data %>%
