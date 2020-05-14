@@ -4,6 +4,9 @@ public
 _book
 bin
 
+# Workspace
+.rstudio
+
 # File handler
 .DS_Store
 Thumbs.db

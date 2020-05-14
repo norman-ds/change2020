@@ -21,6 +21,27 @@ Die aktiven Senioren sind ein wichtiges Gästesegment im Schweizer Tourismus und
 
 Folgend gehe ich auf die [Grafik vom Bundesamt für Statistik (BFS)](https://www.bfs.admin.ch/bfs/de/home/statistiken/gesundheit/gesundheitszustand/sterblichkeit-todesursachen.html) ein und was sie dem Leser mitteilt. Anschliessend zeige ich Diagramme basierend auf Daten vom BFS eingeteilt in drei Altersgruppen und nach Kanton.
 
+
+<html>
+<!-- Hervorheben eines wichtigen Textes --> 
+  <style> 
+    #bfs_info {
+     color: DodgerBlue;
+     text-align: center;
+     margin: auto;
+     width: 90%;
+     }
+   .break {
+     word-break: break-all;    
+     }
+  </style>
+  <p id="bfs_info">
+**Das Bundesamt für Statistik hat** zehn Tage nach Veröffentlichung meines Blog-Beitrags **den öffentlichen Zugang** zu detaillierten Daten (ca. 20MByte) *Todesfälle der Jahre 2000-2020 nach Fünf-Jahres-Altersgruppe, Geschlecht, Woche und Kanton* **gesperrt** (seit 14.Mai 2020 nicht mehr Verfügbar unter 
+<a href="" class="break">https://www.bfs.admin.ch/bfs/de/home/statistiken/gesundheit/gesundheitszustand/sterblichkeit-todesursachen.html</a>.
+  <p>
+</html>
+
+
 # Die Kommunikation vom Bundesamt
 
 Vor einer Woche habe ich beschrieben, warum die [Die Zahl der Toten](/2020/04/22/die-zahl-der-toten/) eine relativ zuverlässige Datenerfassung ist. Zudem konnte ich zeigen, dass es in der Schweiz seit 2013 immer wieder zu einer Übersterblichkeit während der Wintersaison kam. 

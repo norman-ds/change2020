@@ -9,7 +9,7 @@ tags:
   - Blogdown
   - GitHub
   - Netlify
-draft: FALSE
+draft: TRUE
 ---
 
 A static website written in Hugo ( or e.g. Jekyll, Hexo) is much easier to deploy, than websites that require dynamic server-side languages. All you need is to upload the files to a server, and usually your website will be up and running shortly. One recommend provider, considering the cost and friendliness to starter, could be Netlify (https://www.netlify.com). Just use your GitHub account to automate the upload process.
