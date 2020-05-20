@@ -6,12 +6,10 @@ datapath <- file.path('..','data')
 datafile <- file.path(datapath, 'todesfaelle_woche.csv')
 #regiofile <- file.path(datapath, 'grossregionCH.csv')
 
-# base data file for validation process
-val_file1 <- 'valfile1.txt'
-val_file2 <- 'valfile2.txt'
-
 library(dplyr)
 library(readr)
+
+validator(datafile, 'check')
 
 # Todesfälle 2000-2020
 val_df <- readr::read_delim(datafile,
