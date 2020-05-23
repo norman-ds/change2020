@@ -16,14 +16,22 @@
 ## Woche und Kanton (CSV-Datei)
 ## Zeitraum 3.1.2000 bis heute minus 10 Tage
 
-## Metadatei (XLSX) Datei (200kB)
-urlmeta <- "https://www.bfs.admin.ch/bfsstatic/dam/assets/12927169/appendix"
-destmeta <- "../data/todesfaelle_meta.xlsx"
-curl::curl_download(urlmeta, destmeta)
+## opendata.swiss stellt die Daten zur Verfügung
+## https://opendata.swiss/de/dataset/todesfalle-nach-funf-jahres-altersgruppe-geschlecht-woche-und-kanton-csv-datei4"
+open_url <- "https://opendata.swiss/api/3/action/package_show?id=todesfalle-nach-funf-jahres-altersgruppe-geschlecht-woche-und-kanton-csv-datei4"
+rest_api <- jsonlite::fromJSON(open_url, flatten = T)
+
+api_meta <- c(
+  name=rest_api[[3]]$display_name$de,
+  erstellt=rest_api[[3]]$issued,
+  von=rest_api[[3]]$temporals$start_date,
+  bis=rest_api[[3]]$temporals$end_date
+)
+
+aourldest <- tempfile()
+curl::curl_download(aourl, aourldest)
 
 ## CSV (ASCII) Datei (ca. 18MB)
-urlcsv <- "https://www.bfs.admin.ch/bfsstatic/dam/assets/12927169/master"
-destcsv <- "../data/todesfaelle_woche.csv"
+urlcsv <- rest_api[[3]]$resources$download_url[2]
+destcsv <- "../data/new_todesfaelle_woche.csv"
 curl::curl_download(urlcsv, destcsv)
-
-
